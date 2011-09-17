@@ -47,8 +47,8 @@ Page {
         spacing: 10
 
         property int clickCount: 0
-        property variant a : ''
-        property variant b : ''
+        property variant card1 : ''
+        property variant card2 : ''
 
         anchors.centerIn: parent
     }

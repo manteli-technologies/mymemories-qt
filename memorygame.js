@@ -18,7 +18,7 @@ function foo(gallery, grid) {
         imgs.push( u1 );
         imgs.push( u2 );
 
-        console.log( imgs.length )
+        console.log( imgs.lengtha s )
 
     }
 
@@ -26,21 +26,18 @@ function foo(gallery, grid) {
     imgs.sort( function(a, b) { return Math.random() > 0.5 ? 1 : -1; } )
 
     for(var j = 0; j < imgs.length; j++ ) {
-
-        console.log("aaa");
-        console.log( j );
         var a = imgs[j];
         a.parent = grid;
     }
 
 }
 
-function openCard(object) {
+function openCard( card ) {
 
     if( grid.clickCount % 2 == 0 ) {
-        grid.a = object;
+        grid.card1 = card;
     } else {
-        grid.b = object;
+        grid.card2 = card;
     }
 
     // add number of clicks!
@@ -49,8 +46,8 @@ function openCard(object) {
 
     if( grid.clickCount == 0 ) {
 
-        var a = grid.a;
-        var b = grid.b;
+        var a = grid.card1;
+        var b = grid.card2;
 
         if( a.source == b.source ) {
             // move objects
