@@ -9,7 +9,6 @@ Page {
     id: mainPage
 
     BusyIndicator {
-
         id : progressBar
 
         // TODO: harcoded shit
@@ -37,11 +36,9 @@ Page {
     }
 
     Item {
-
         id : container
 
         visible: false
-
     }
 
     Grid {
@@ -55,6 +52,29 @@ Page {
         property variant card2 : ''
 
         anchors.centerIn: parent
+    }
+
+    Image {
+        id : resultDisplay
+
+        fillMode: Image.PreserveAspectFit
+
+        width: 1
+
+        visible: width > 10
+
+        property int maxWidth: parent.width - 50
+
+        anchors.centerIn: parent
+
+
+
+    }
+
+    SequentialAnimation {
+        id: resultDisplayAnimation
+        NumberAnimation { target: resultDisplay; property: "width"; to: resultDisplay.maxWidth; duration: 1000 }
+        NumberAnimation { target: resultDisplay; property: "width"; to: 1; duration: 1000 }
     }
 
 }

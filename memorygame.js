@@ -56,6 +56,10 @@ function openCard( card ) {
             a.y = a.hideY * appWindow.width;
             b.x = b.hideX * appWindow.height;
             b.y = b.hideY * appWindow.height;
+
+            resultDisplay.source = a.source
+            resultDisplayAnimation.running = true;
+
         } else {
             // hide stuff!
             a.flipped = b.flipped = false
