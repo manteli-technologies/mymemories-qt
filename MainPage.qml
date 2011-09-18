@@ -8,16 +8,15 @@ import 'memorygame.js' as MemoryGame
 Page {
     id: mainPage
 
-    Button {
+    ProgressBar {
 
-        width: 50
-        height: 50
+        id : progressBar
 
-        text: 'Press me'
+        indeterminate : true
 
         anchors.centerIn: parent
 
-        onClicked: MemoryGame.foo(gallery, grid);
+        visible: grid.children.width == 0
 
     }
 
@@ -26,9 +25,14 @@ Page {
         rootType: DocumentGallery.Image
         properties: [ "url" ]
 
-        Component.onCompleted: {
-            MemoryGame.foo(gallery, grid)
+        onProgressChanged: {
+            console.log('Foobaa! ' + progress);
+            if( progress == 1 ) {
+                console.log("OK done!");
+                MemoryGame.foo(gallery, grid);
+            }
         }
+
 
     }
 
