@@ -8,15 +8,17 @@ import 'memorygame.js' as MemoryGame
 Page {
     id: mainPage
 
-    ProgressBar {
+    BusyIndicator {
 
         id : progressBar
 
-        indeterminate : true
+        // TODO: harcoded shit
+        implicitWidth: 96
 
         anchors.centerIn: parent
 
-        visible: grid.children.width == 0
+        running: true
+        visible: gallery.progress < 1
 
     }
 
