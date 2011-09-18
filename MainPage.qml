@@ -26,9 +26,7 @@ Page {
         properties: [ "url" ]
 
         onProgressChanged: {
-            console.log('Foobaa! ' + progress);
             if( progress == 1 ) {
-                console.log("OK done!");
                 MemoryGame.foo(gallery, grid);
             }
         }
