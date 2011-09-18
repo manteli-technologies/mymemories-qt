@@ -1,34 +1,35 @@
 function foo(gallery, grid) {
 
-    var imgs = []
+    var cards = []
+
+    // select (random) images
+    // todo: add randomness
 
     for(var i = 0; i < gallery.count; i++) {
 
         var url = gallery.get(i).url
 
-        var u1 = Qt.createComponent( "MemoryCard.qml" );
-        var u2 = Qt.createComponent( "MemoryCard.qml" );
+        var card1 = Qt.createComponent( "MemoryCard.qml" );
+        var card2 = Qt.createComponent( "MemoryCard.qml" );
 
-        u1 = u1.createObject( container );
-        u2 = u2.createObject( container );
+        card1 = card1.createObject( container );
+        card2 = card2.createObject( container );
 
-        u1.source = url;
-        u2.source = url;
+        card1.source = url;
+        card2.source = url;
 
-        imgs.push( u1 );
-        imgs.push( u2 );
-
-        console.log( imgs.lengtha s )
+        cards.push( card1 );
+        cards.push( card2 );
 
     }
 
     // randomize!
-    imgs.sort( function(a, b) { return Math.random() > 0.5 ? 1 : -1; } )
+    // todo: clean me!
+    cards.sort( function(a, b) { return Math.random() > 0.5 ? 1 : -1; } )
 
-    for(var j = 0; j < imgs.length; j++ ) {
-        var a = imgs[j];
-        a.parent = grid;
-    }
+    cards.forEach( function(element) {
+         element.parent = grid;
+    } );
 
 }
 
