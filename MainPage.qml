@@ -27,7 +27,7 @@ Page {
 
         onProgressChanged: {
             if( progress == 1 ) {
-                MemoryGame.foo(gallery, grid);
+                MemoryGame.init()
             }
         }
 

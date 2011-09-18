@@ -1,4 +1,4 @@
-function foo(gallery, grid) {
+function init() {
 
     var cards = []
 
