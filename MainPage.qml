@@ -8,6 +8,27 @@ import 'memorygame.js' as MemoryGame
 Page {
     id: mainPage
 
+    Text {
+        id : time
+
+        property int t: 0
+
+        onTChanged: {
+            var mins = t % 60;
+            var secs = t * 60 * mins;
+            text = mins + ':' + secs
+        }
+    }
+
+    Timer {
+        running: true
+        interval: 1000
+        repeat: true
+        onTriggered: {
+            time.t++;
+        }
+    }
+
     BusyIndicator {
         id : progressBar
 
