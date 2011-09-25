@@ -27,19 +27,6 @@ Page {
         }
     }
 
-    BusyIndicator {
-        id : progressBar
-
-        // TODO: harcoded shit
-        implicitWidth: 96
-
-        anchors.centerIn: parent
-
-        running: true
-        visible: gallery.progress < 1
-
-    }
-
     DocumentGalleryModel {
         id: gallery
         rootType: DocumentGallery.Image
@@ -85,8 +72,6 @@ Page {
         property int maxWidth: parent.width - 50
 
         anchors.centerIn: parent
-
-
 
     }
 
