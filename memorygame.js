@@ -1,13 +1,17 @@
- function init() {
+function random(max) {
+    return Math.floor( Math.random() * max )
+}
 
+function init() {
     var cards = []
 
     // select (random) images
     // todo: add randomness
 
-    for(var i = 0; i < gallery.count; i++) {
+    for(var i = 0; i < 8; i++) {
 
-        var url = gallery.get(i).url
+        var rdm = random( gallery.count )
+        var url = gallery.get( rdm ).url
 
         var card1 = Qt.createComponent( "MemoryCard.qml" );
         var card2 = Qt.createComponent( "MemoryCard.qml" );
