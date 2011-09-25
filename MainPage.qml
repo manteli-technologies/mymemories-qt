@@ -11,12 +11,10 @@ Page {
     Text {
         id : time
 
-        property int t: 0
+        property int counter: 0
 
-        onTChanged: {
-            var mins = t % 60;
-            var secs = t * 60 * mins;
-            text = mins + ':' + secs
+        onCounterChanged: {
+            text = counter
         }
     }
 
@@ -25,7 +23,7 @@ Page {
         interval: 1000
         repeat: true
         onTriggered: {
-            time.t++;
+            time.counter++;
         }
     }
 
