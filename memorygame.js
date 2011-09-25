@@ -1,4 +1,4 @@
-function init() {
+ function init() {
 
     var cards = []
 
@@ -52,11 +52,8 @@ function openCard( card ) {
 
         if( a.source == b.source ) {
             // move objects
-            a.x = a.hideX * appWindow.height;
-            a.y = a.hideY * appWindow.width;
-            b.x = b.hideX * appWindow.height;
-            b.y = b.hideY * appWindow.height;
-
+            a.x = b.x = a.hideX * appWindow.height;
+            a.y = b.y = a.hideY * appWindow.width;
             resultDisplay.source = a.source
             resultDisplayAnimation.running = true;
 

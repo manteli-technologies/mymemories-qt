@@ -16,11 +16,11 @@ Item {
     property int hideY : Math.random() > 0.5 ? 1 : -1
 
     Behavior on x {
-        NumberAnimation { duration: 1500 }
+        SmoothedAnimation { duration: 1500 }
     }
 
     Behavior on y {
-        NumberAnimation { duration: 1500 }
+        SmoothedAnimation { duration: 1500 }
     }
 
     Timer {
@@ -54,7 +54,7 @@ Item {
             width: parent.width
             height: parent.height
 
-            scale: Image.PreserveAspectFit
+            fillMode: Image.PreserveAspectFit
 
         }
 
