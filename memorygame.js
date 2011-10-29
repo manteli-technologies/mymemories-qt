@@ -3,7 +3,19 @@ function random(max) {
 }
 
 function init() {
+    // clear data
+
+    grid.clickCount = 0;
+    grid.correctCount = 0;
+    grid.card1 = grid.card2 = ''
+
+    time.counter = 0;
+
     var cards = []
+
+    for( var i = 0; i < grid.children.length; i++) {
+        grid.children[i].destroy()
+    }
 
     // select (random) images
     // todo: add randomness
@@ -60,6 +72,8 @@ function openCard( card ) {
             a.y = b.y = a.hideY * appWindow.width;
             resultDisplay.source = a.source
             resultDisplayAnimation.running = true;
+
+            grid.correctCount++;
 
         } else {
             // hide stuff!

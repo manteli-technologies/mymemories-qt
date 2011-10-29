@@ -47,21 +47,31 @@ Item {
         width: parent.width
         height: parent.height
 
-        back : Image {
+        back : Rectangle {
 
-            id : image
+            color: 'black'
 
+            radius: 7
             width: parent.width
             height: parent.height
 
-            fillMode: Image.PreserveAspectFit
+            Image {
 
+                id : image
+
+                width: parent.width - 3
+                height: parent.height - 3
+
+                fillMode: Image.PreserveAspectFit
+
+            }
         }
 
         front: Rectangle {
 
-            color: 'pink'
+            color: 'blue'
 
+            radius: 7
             width: parent.width
             height: parent.height
         }

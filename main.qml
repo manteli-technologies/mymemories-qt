@@ -7,4 +7,5 @@ PageStackWindow {
     initialPage: mainPage
 
     MainPage{id: mainPage}
+
 }

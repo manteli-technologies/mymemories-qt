@@ -8,18 +8,49 @@ import 'memorygame.js' as MemoryGame
 Page {
     id: mainPage
 
-    Text {
+    orientationLock: PageOrientation.LockPortrait
+
+    Label {
+        text : 'My Memories'
+        anchors.top: parent.top
+        anchors.topMargin: 10
+
+        anchors.horizontalCenter: parent.horizontalCenter
+    }
+
+    Button {
+
+        text : 'Again'
+
+        anchors.centerIn: parent
+
+        visible: grid.correctCount == grid.children.length / 2
+
+        onClicked: MemoryGame.init()
+
+    }
+
+    Label {
         id : time
 
         property int counter: 0
 
+        anchors.bottom: grid.top
+        anchors.horizontalCenter: grid.horizontalCenter
+
+        text: '0:00'
+
         onCounterChanged: {
-            text = counter
+            // calc sec mins represntation
+            var mins = parseInt( counter / 60 )
+            var secs = counter - 60 * mins
+            if( secs < 10 ) secs = '0' + secs
+            text = mins + ':' + secs
         }
     }
 
     Timer {
-        running: true
+        running: grid.correctCount < grid.children.length / 2
         interval: 1000
         repeat: true
         onTriggered: {
@@ -53,11 +84,13 @@ Page {
 
         spacing: 10
 
+        anchors.centerIn: parent
+
         property int clickCount: 0
+        property int correctCount: 0
+
         property variant card1 : ''
         property variant card2 : ''
-
-        anchors.centerIn: parent
     }
 
     Image {
