@@ -60,7 +60,7 @@ Page {
     }
 
     Timer {
-        running: grid.correctCount < grid.children.length / 2
+        running: grid.correctCount < MemoryGame.GRID_SIZE && platformWindow.active
         interval: 1000
         repeat: true
         onTriggered: {
