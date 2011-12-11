@@ -2,6 +2,8 @@ function random(max) {
     return Math.floor( Math.random() * max )
 }
 
+var GRID_SIZE = 8;
+
 function init() {
     // clear data
 
@@ -20,7 +22,7 @@ function init() {
     // select (random) images
     // todo: add randomness
 
-    for(var i = 0; i < 8; i++) {
+    for(var i = 0; i < GRID_SIZE; i++) {
 
         var rdm = random( gallery.count )
         var url = gallery.get( rdm ).url

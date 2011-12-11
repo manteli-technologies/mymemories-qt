@@ -18,7 +18,7 @@ Page {
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
-    Button {
+    /*Button {
 
         text : 'Again'
 
@@ -28,6 +28,14 @@ Page {
 
         onClicked: MemoryGame.init()
 
+    }*/
+
+    BusyIndicator {
+        id: loading
+        running: grid.children.length / 2 < MemoryGame.GRID_SIZE
+        visible: running
+        implicitWidth: 96
+        anchors.centerIn: parent
     }
 
     Label {
@@ -39,6 +47,8 @@ Page {
         anchors.horizontalCenter: grid.horizontalCenter
 
         text: '0:00'
+
+        visible: ! loading.visible
 
         onCounterChanged: {
             // calc sec mins represntation
