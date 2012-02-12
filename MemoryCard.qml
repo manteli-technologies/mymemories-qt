@@ -7,7 +7,7 @@ Item {
     id: container
 
     width: 100
-    height: 100
+    height: 160
 
     property alias source : image.source
     property alias flipped : flick.flipped
